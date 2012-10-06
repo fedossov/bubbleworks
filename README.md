@@ -1,0 +1,1 @@
+Helps you to run a bubbletree.js visualization in about 5 minutes. Have fun.
