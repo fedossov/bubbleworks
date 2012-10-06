@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Bubble Tree Setup Example ver. 06.10.2012</title>
+    <script type="text/javascript" src="bubbletree/lib/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript" src="bubbletree/lib/jquery.history.js"></script>
+    <script type="text/javascript" src="bubbletree/lib/raphael.js"></script>
+    <script type="text/javascript" src="bubbletree/lib/vis4.js"></script>
+    <script type="text/javascript" src="bubbletree/lib/Tween.js"></script>
+    <script type="text/javascript" src="bubbletree/build/bubbletree.js"></script>
+    <script type="text/javascript" src="bubbletree/styles/cofog.js"></script>
+    <link rel="stylesheet" type="text/css" href="bubbletree/build/bubbletree.css" />
+    <script type="text/javascript">
+
+        $(function() {
+            new BubbleTree({
+                data: data,
+                container: '.bubbletree',
+                bubbleType: 'icon',
+                bubbleStyles: {
+                    'fb': {                                              //taxonomy
+                        'edu': {                                        //name of the node/child
+                            // color: '#9900cc',                       //color of the bubble if you like to set it here
+                            icon: 'bubbletree/styles/icons/azubi.svg' //icon url
+                        },
+                        'kar': {
+
+                            icon: 'bubbletree/styles/icons/karriere.svg'
+                        },
+                        'fb': {
+
+                            icon: 'bubbletree/styles/icons/fb.svg'
+                        },
+                        'job': {
+
+                            icon: 'bubbletree/styles/icons/job.svg'
+                        },
+                        'win': {
+
+                            icon: 'bubbletree/styles/icons/win.svg'
+                        },
+                        're': {
+
+                            icon: 'bubbletree/styles/icons/re.svg'
+                        },
+                        'nore': {
+
+                            icon: 'bubbletree/styles/icons/nore.svg'
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+
+</head>
+<body>
+
+<script type="text/javascript">
+
+    var data = { //main node
+        taxonomy:'fb',
+        name: 'fb',
+        label: "XYZ",
+        amount: 100,
+        color: '#119ce2',
+
+        children:[ //child level 1
+
+            {taxonomy:'fb', name:'kar', label: "X",amount: 70, color: '#e74011', //child 1.1
+
+                children: [ //child level 2
+
+                            {taxonomy:'fb', name:'job',label: "Y", amount: 113, color:'#02455f'}, //child 1.1.1
+                            {taxonomy:'fb', name:'win', label: "Z", amount: 19, color:'#7c3e71',  //child 1.1.2
+
+                                            children: [ //child level 3 - the following children belong to child 1.1.2
+
+                                                       {taxonomy:'fb', name:'re',label: "ABC", amount: 84, color:'#A41ED1'}, //child 1.1.2.1
+                                                       {taxonomy:'fb', name:'nore',label: "DEF", amount: 69, color:'#000'}   //child 1.1.2.2
+
+                                                       ] }]
+
+            },
+
+            {taxonomy: 'fb', name: 'edu', label: "X",amount: 30, color: '#c8b26d', //child 1.2
+
+                children: [ //child level 2
+
+                            {taxonomy:'fb', name:'job',label: "Y", amount: 13, color:'#02455f'}, //child 1.2.1
+                            {taxonomy:'fb', name:'win', label: "Z", amount: 30, color:'#7c3e71', //child 1.2.2
+
+                                            children: [ //child level 3 - the following children belong to child 1.2.2
+
+                                                       {taxonomy:'fb', name:'re',label: "ABC", amount: 20, color:'#A41ED1'}, //child 1.2.2.1
+                                                       {taxonomy:'fb', name:'nore',label: "DEF", amount: 22, color:'#000'}  //child 1.2.2.2
+
+                                                       ] }]
+
+            }
+
+
+        ]
+    }
+
+
+
+
+</script>
+
+<div id="header">
+    <a class="title">Example by Alexander Fedossov</a>
+    <div class="subtitle">Built with <a href="http://okfn.org/">Open Knowledge Foundation's</a> <a href="https://github.com/okfn/bubbletree">Bubbletree library</a></div>
+    <br>
+    <img src="img/cc.svg" /><img src="img/by.svg" /><img src="img/nc.svg" />
+
+</div>
+<div class="bubbletree-wrapper">
+    <div class="bubbletree"></div>
+</div>
+</body>
+</html>
